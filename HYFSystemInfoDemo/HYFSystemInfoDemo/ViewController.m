@@ -22,7 +22,7 @@
         _dataArray = [NSMutableArray arrayWithObjects:@"获取当前时间戳", @"系统当前时间", @"应用名称",
                       @"应用版本号", @"系统版本号", @"系统名称",
                       @"系统使用语言", @"手机型号", @"设备类型(详细)",
-                      @"电池状态", @"总内存大小", @"手机可用内存", @"总磁盘容量",
+                      @"电池充电状态", @"总内存大小", @"手机可用内存", @"总磁盘容量",
                       @"已用磁盘空间", @"可用磁盘空间", @"广告位标识符",
                       @"唯一设备id", @"所在国家", @"运营商",
                       @"mcc",@"mnc", @"设备ip", @"网络类型",
@@ -87,7 +87,7 @@
         selectedInfo = [NSString stringWithFormat:@"%@为:%@",self.dataArray[indexPath.row], [HYFSystemInfo getDeviceName]];
     } else if (indexPath.row == 9 ) {
         selectedInfo = [NSString stringWithFormat:@"%@为:%@",self.dataArray[indexPath.row],
-                        [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateUnknown"] ? @"未检测到" : [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateUnknown"] ? @"未连接电源:正常使用" : [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateCharging"] ? @"充电中" : [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateFull"] ? @"已连接电源:已充满" : @"未检测到"];
+                        [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateUnknown"] ? @"未检测到" : [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateUnplugged"] ? @"未连接电源:正常使用" : [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateCharging"] ? @"充电中" : [[HYFSystemInfo getBatteryState] isEqualToString:@"UIDeviceBatteryStateFull"] ? @"已连接电源:已充满" : @"未检测到"];
     } else if (indexPath.row == 10 ) {
         selectedInfo = [NSString stringWithFormat:@"%@为:%@",self.dataArray[indexPath.row], [HYFSystemInfo getTotalMemorySizeString]];
     } else if (indexPath.row == 11 ) {
